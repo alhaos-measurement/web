@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 144px;
+    width: 100%;
+    background-color: var(--dark-background-color);
+}
+
+.caption {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--light-text-color);
+}

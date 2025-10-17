@@ -1,0 +1,9 @@
+.App {
+    max-width: 1280px;
+    min-width: 385px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
