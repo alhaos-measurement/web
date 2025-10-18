@@ -18,6 +18,7 @@ export default defineConfig({
             short_name: 'Measurements',
             description: 'alhaos measurements',
             theme_color: '#ffffff',
+            display: "fullscreen",
         },
 
         workbox: {
