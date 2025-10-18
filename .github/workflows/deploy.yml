@@ -18,17 +18,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+
       - run: npm ci
+
       - run: npm run build --if-present
+
       - name: Deploy via rsync
         uses: burnett01/rsync-deployments@5.2
         with:
-          switches: -avz --delete
+          switches: -rlDzv --no-perms --no-owner --no-group
           path: dist/
           remote_path: /var/www/pressure.pyah.online/
           remote_host: ${{ secrets.REMOTE_HOST }}
