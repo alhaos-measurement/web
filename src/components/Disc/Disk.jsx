@@ -6,15 +6,23 @@ function Disk() {
     let [value, setValue] = useState("n/a");
 
     useEffect(() => {
-        fetch("/api/measure")
+        fetch("/api/last-measure-by-id", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                sensorID: 1,
+            })
+        })
             .then((resp) => {
                 if (!resp.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return resp.json(); // исправлено: json() вместо JSON()
+                return resp.json();
             })
             .then((data) => {
-                setValue(data.value); // или data, в зависимости от структуры ответа
+                setValue(data.value);
             })
             .catch((err) => {
                 console.log(err);
