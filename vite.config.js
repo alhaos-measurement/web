@@ -38,7 +38,7 @@ export default defineConfig({
     server: {
         proxy: {
             '/api': {
-                target: 'http://localhost:8080',
+                target: 'http://pressure.pyah.online:8080',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/backend/, ''),
                 secure: false,

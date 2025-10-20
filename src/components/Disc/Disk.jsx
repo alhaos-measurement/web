@@ -22,7 +22,7 @@ function Disk() {
                 return resp.json();
             })
             .then((data) => {
-                setValue(data.value);
+                setValue(Math.round(data.value));
             })
             .catch((err) => {
                 console.log(err);
