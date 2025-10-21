@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 
 function Disk() {
 
-    let [value, setValue] = useState("n/a");
+    let [value, setValue] = useState("load...");
 
     useEffect(() => {
         fetch("/api/last-measure-by-id", {
