@@ -1,10 +1,12 @@
 import styles from './Disk.module.css'
 import {useEffect, useState} from "react";
+import PropTypes from "prop-types";
 
-function Disk() {
+function Disk({sensorID, measureTypeID}) {
 
-    let [pressureValue, setPressureValue] = useState("load...");
-    let [temperatureValue, setTemperatureValue] = useState("load...");
+    let [value, setValue] = useState("loading...");
+    let [caption, setCaption] = useState("loading...");
+
 
     useEffect(() => {
         fetch("/api/last-measure-by-id", {
@@ -13,8 +15,8 @@ function Disk() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                sensorID: 1,
-                measureTypeID: 1
+                sensorID: sensorID,
+                measureTypeID: measureTypeID
             })
         })
             .then((resp) => {
@@ -24,30 +26,8 @@ function Disk() {
                 return resp.json();
             })
             .then((data) => {
-                setPressureValue(Math.round(data.value));
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-
-        fetch("/api/last-measure-by-id", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                sensorID: 1,
-                measureTypeID: 2
-            })
-        })
-            .then((resp) => {
-                if (!resp.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return resp.json();
-            })
-            .then((data) => {
-                setTemperatureValue(Math.round(data.value));
+                setValue(Math.round(data.value));
+                setCaption(data.measureName)
             })
             .catch((err) => {
                 console.log(err);
@@ -56,10 +36,15 @@ function Disk() {
 
     return (
         <>
-            <div className={styles.container}>{pressureValue}</div>
-            <div className={styles.container}>{temperatureValue}</div>
+            <p>{caption}</p>
+            <div className={styles.container}>{value}</div>
         </>
     );
+}
+
+Disk.propTypes = {
+    sensorID: PropTypes.number.isRequired,
+    measureTypeID: PropTypes.number.isRequired
 }
 
 export default Disk;

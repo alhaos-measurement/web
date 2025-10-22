@@ -3,7 +3,8 @@ import Disk from "../Disc/Disk.jsx";
 
 function Main() {
     return <div className={styles.container}>
-        <Disk/>
+        <Disk sensorID={1} measureTypeID={1}/>
+        <Disk sensorID={1} measureTypeID={2}/>
     </div>
 }
 
