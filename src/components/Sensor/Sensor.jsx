@@ -1,8 +1,8 @@
-import styles from './Disk.module.css'
+import styles from './Sensor.module.css'
 import {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 
-function Disk({sensorID, measureTypeID}) {
+function Sensor({sensorID, measureTypeID}) {
 
     let [value, setValue] = useState("loading...");
     let [caption, setCaption] = useState("loading...");
@@ -26,7 +26,7 @@ function Disk({sensorID, measureTypeID}) {
                 return resp.json();
             })
             .then((data) => {
-                setValue(Math.round(data.value));
+                setValue(`${Math.round(data.value)} ${data.unitName}`)
                 setCaption(data.measureName)
             })
             .catch((err) => {
@@ -42,9 +42,9 @@ function Disk({sensorID, measureTypeID}) {
     );
 }
 
-Disk.propTypes = {
+Sensor.propTypes = {
     sensorID: PropTypes.number.isRequired,
     measureTypeID: PropTypes.number.isRequired
 }
 
-export default Disk;
+export default Sensor;

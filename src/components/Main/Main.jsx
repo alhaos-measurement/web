@@ -1,10 +1,10 @@
 import styles from "./Main.module.css"
-import Disk from "../Disc/Disk.jsx";
+import Sensor from "../Sensor/Sensor.jsx";
 
 function Main() {
     return <div className={styles.container}>
-        <Disk sensorID={1} measureTypeID={1}/>
-        <Disk sensorID={1} measureTypeID={2}/>
+        <Sensor sensorID={1} measureTypeID={1}/>
+        <Sensor sensorID={1} measureTypeID={2}/>
     </div>
 }
 
