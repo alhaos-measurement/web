@@ -1,9 +1,11 @@
 .container {
+    padding-top: .5rem;
     width: 100%;
     min-height: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     background-color: var(--medium-background-color);
+    gap: .5rem;
 }

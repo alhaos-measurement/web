@@ -7,7 +7,6 @@ function Sensor({sensorID, measureTypeID}) {
     let [value, setValue] = useState("loading...");
     let [caption, setCaption] = useState("loading...");
 
-
     useEffect(() => {
         fetch("/api/last-measure-by-id", {
             method: "POST",
@@ -35,10 +34,10 @@ function Sensor({sensorID, measureTypeID}) {
     }, []);
 
     return (
-        <>
-            <p>{caption}</p>
-            <div className={styles.container}>{value}</div>
-        </>
+        <div className={styles.container}>
+            <div className={styles.caption}>{caption}</div>
+            <div className={styles.value}>{value}</div>
+        </div>
     );
 }
 
