@@ -20,3 +20,20 @@ export const formatDateTime = (dateString) => {
 
     return `${day} ${month} ${year}г ${hours}:${minutes}`;
 };
+
+export const getTime = (timestamp) => {
+    return new Date(timestamp).toLocaleTimeString('ru-RU', {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+};
+
+export const getDate = (timestamp) => {
+    return new Date(timestamp).toLocaleDateString('ru-RU', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+};
+
+
