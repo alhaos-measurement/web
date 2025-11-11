@@ -111,7 +111,7 @@ const Barometer = ({sensorID, measureTypeID}) => {
                       textAnchor={"middle"}
                       fontSize="16"
                       fontWeight="bold"
-                      fill="#333">{`${data.value} ${data.unitName}`}</text>
+                      fill="#333">{`${data.value.toFixed(2)} ${data.unitName}`}</text>
 
                 <text x={150}
                       y={220}
