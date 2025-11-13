@@ -102,7 +102,6 @@ const PressureChart = () => {
                 fontSize: '1.5rem',
                 fontWeight: '600'
             }}>
-                График атмосферного давления
             </h3>
             <ResponsiveContainer width="100%" height={350}>
                 <LineChart
@@ -112,14 +111,6 @@ const PressureChart = () => {
                     <CartesianGrid strokeDasharray="3 3" stroke="#8a9a96" opacity={0.3}/>
                     <XAxis
                         dataKey="time"
-                        label={{
-                            value: 'Время',
-                            position: 'insideBottom',
-                            offset: -15,
-                            fill: '#ffffff',
-                            fontSize: 12,
-                            fontWeight: '500'
-                        }}
                         tick={{
                             fill: '#ffffff',
                             fontSize: 11,
@@ -129,15 +120,6 @@ const PressureChart = () => {
                         tickLine={{stroke: '#ffffff'}}
                     />
                     <YAxis
-                        label={{
-                            value: 'Давление (мм рт.ст.)',
-                            angle: -90,
-                            position: 'insideLeft',
-                            offset: -10,
-                            fill: '#ffffff',
-                            fontSize: 12,
-                            fontWeight: '500'
-                        }}
                         domain={['dataMin - 0.5', 'dataMax + 0.5']}
                         tick={{
                             fill: '#ffffff',
